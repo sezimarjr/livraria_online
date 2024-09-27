@@ -5,6 +5,8 @@ from django.core.paginator import Paginator
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import auth
 
+from livraria.forms import RegisterForm
+
 # Create your views here.
 
 
@@ -80,4 +82,10 @@ def login_view(request):
   return render(request, 'livraria/login.html',{'form':form})
 
 def register(request):
-  ...
+  form = RegisterForm(request.POST)
+  
+  if form.is_valid():
+    form.save()
+    return redirect('book:login')
+  
+  return render(request, 'livraria/register.html',{'form':form})

@@ -33,8 +33,6 @@ class RegisterForm(UserCreationForm):
               )
   def clean_email(self):
     email = self.cleaned_data.get('email')
-    print(email)
-      
     if User.objects.filter(email=email).exists():
       print('Email ja existe')
       self.add_error(
