@@ -276,6 +276,10 @@ body {
 .book-sinopse h2{
   margin-bottom: 24px;
 }
+
+.book-sinopse p{
+  text-align: justify;
+}
 .title-sinopse{
   font-weight: 400;
   color: rgb(64, 52, 40);
