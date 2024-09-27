@@ -66,6 +66,8 @@ def search(request):
 
 def login_view(request):
   form = AuthenticationForm(request)
+  if request.user.is_authenticated:
+    return redirect('book:index')
   
   if request.method == 'POST':
     form = AuthenticationForm(request, data=request.POST)
