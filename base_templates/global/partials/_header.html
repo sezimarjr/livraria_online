@@ -15,7 +15,14 @@
       <input type="text" placeholder="Buscar" id="search" name="q" />
     </form>
     <div>
-      <a href="">Login</a>
+      {% if user.is_authenticated %}
+        <p>{{user}}</p>
+
+      {% else %}
+        <a href="">Login</a>
+      
+      {% endif %}
+      
     </div>
     
   </div>
