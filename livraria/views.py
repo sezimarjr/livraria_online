@@ -78,3 +78,6 @@ def login_view(request):
       return redirect('book:index')
     
   return render(request, 'livraria/login.html',{'form':form})
+
+def register(request):
+  ...
