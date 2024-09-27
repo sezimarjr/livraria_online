@@ -7,7 +7,7 @@ from django.core.paginator import Paginator
 
 
 def index(request):
-  books = Book.objects.all().order_by('-id')[:150]
+  books = Book.objects.all().order_by('-id')
   print(books[0].category.filter()[:1])
   
   context = {
@@ -34,12 +34,13 @@ def book(request,book_id):
 def search(request):
   
   search_value = request.GET.get('q','').strip()
-  print(search_value)
+  if not search_value:
+    return redirect('book:index')
+ 
   select_filter = request.GET.get('selected_filter')
-  print(select_filter)
   
-  # if not search_value:
-  #   return redirect('livraria:index')
+  
+  
   
   if search_value:
     if select_filter == 'title':
