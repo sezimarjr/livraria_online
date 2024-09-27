@@ -1,24 +1,58 @@
 {% extends "global/base.html" %}
 
 {% block content %}
-
-  <div class="book-container">
-    <div class="book-title">
-      <h1>My hero Academia teste teste teste teste</h1>
+<div class="book-container">
+  <div class="book-details">
+    <div class="book-sidebar">
+      <img src="{{single_book.cover_url}}" alt="{{single_book.title}}" class="book-cover">
     </div>
-    <div class="book-wrapper">
-      <div>
-        <span>Autor : AUTOR TESTE</span>
-      </div>
-      <div>
-        <span>Publicadora : PUBLICADORA TESTE</span>
-      </div>
       
-    </div>
+      <div class="book-info">
+        <p class="author">{{single_book.author}}</p>
+        <h1 class="title">{{single_book.title}}</h1>
+        <div class="book-price">
+          <span class="price"><span>R$</span> {{single_book.price}}</span>
+          <button class="add-to-cart">Adicionar ao carrinho</button>
+        </div>
+      </div>
   </div>
-
-
-
   
+</div>
+<div class="book-container">
+  <div class="detailed-description">
+    <div class="detailed-description--item">
+      <div>
+        <b>Paginas</b>
+        <p>{{single_book.pages}}</p>
+      </div>
+    </div>
+    <div class="detailed-description--item">
+      <div>
+        <b>Editora</b>
+        <p>{{single_book.publisher}}</p>
+      </div>
+    </div>
+    <div class="detailed-description--item">
+      <div>
+        <b>Autor</b>
+        <p>{{single_book.author}}</p>
+      </div>
+    </div>
+    <div class="detailed-description--item">
+      <div>
+        <b>Categoria</b>
+        <p>{{single_book.category.all.0}}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="book-container">
+  <div class="book-sinopse">
+    <h2>Sinopse: <span class="title-sinopse"> {{single_book.title}}</span></h2>
+    <p>{{single_book.description}}</p>
+  </div>
+</div>
+
 
 {% endblock content %}

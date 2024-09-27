@@ -5,8 +5,8 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoed UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: #3f3f3f;
   
 }
 
@@ -41,6 +41,9 @@ body {
   font-size: 24px;
   font-weight: bold;
   color: white;
+}
+.logo a{
+  text-decoration: none;
 }
 
 .search-bar {
@@ -78,6 +81,10 @@ body {
 
 
 .card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: white;
   width: 200px;
   border: 1px solid #ddd;
@@ -157,16 +164,122 @@ body {
 
 
 .book-container{
+  display: flex;
   max-width: 1024px;
-  margin: 0 auto;
+  margin: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  
+    
+}
+
+.book-details {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+.book-cover {
+    width: 200px;
+    
+}
+
+.book-sidebar{
+  float: left;
   display: flex;
   flex-direction: column;
+  margin-right: 20px; 
+}
+
+.book-info {
+    overflow: hidden;
+    margin-top: 60px;
+}
+
+.title {
+    font-size: 32px;
+    margin-bottom: 24px;
+}
+
+.year, .author, .pages, .category, .publisher {
+    font-size: 16px;
+}
+.author{
+  color:#6a5a5a;
+}
+
+.description {
+    margin: 20px 0;
+    text-align: justify;
+}
+
+.book-price {
+
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+
+.add-to-cart {
+  padding: 10px 8px;
+  font-size: 16px;
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-to-cart:hover {
+    background-color: #e68900; /* Cor ao passar o mouse */
+}
+
+
+.detailed-description{
+  display: flex;
+  width: 100%;
+  /* justify-content: center;
+  align-items: center; */
   
 }
-.book-wrapper{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+
+.detailed-description--item{
+  width: 258px;
+  text-align: center;
+  border: 1px solid #eaeaea;
+  background-color: #fff;
+  padding: 25px 5px 20px;
+  margin-top: -1px;
+  margin-left: -1px;
+  vertical-align: top;
+
+}
+.detailed-description--item:first-child{
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.detailed-description--item:last-child{
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.book-sinopse{
+  margin: 40px 0;
+  padding: 20px;
+}
+.book-sinopse h2{
+  margin-bottom: 24px;
+}
+.title-sinopse{
+  font-weight: 400;
+  color: rgb(64, 52, 40);
+
 }
 
 

@@ -25,7 +25,7 @@ def book(request,book_id):
   )
   
   context = {
-    'book':single_book,
+    'single_book':single_book,
   }
   
   return render(request, 'livraria/book.html',context)
