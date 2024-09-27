@@ -17,9 +17,10 @@
     <div>
       {% if user.is_authenticated %}
         <p>{{user}}</p>
+        <a href="{% url 'book:logout' %}">Logout</a>
 
       {% else %}
-        <a href="">Login</a>
+        <a href="{% url 'book:login' %}">Login</a>
       
       {% endif %}
       
