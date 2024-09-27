@@ -29,3 +29,34 @@ def book(request,book_id):
   }
   
   return render(request, 'livraria/book.html',context)
+
+
+def search(request):
+  
+  search_value = request.GET.get('q','').strip()
+  print(search_value)
+  select_filter = request.GET.get('selected_filter')
+  print(select_filter)
+  
+  # if not search_value:
+  #   return redirect('livraria:index')
+  
+  if search_value:
+    if select_filter == 'title':
+      filter_books = Book.objects.filter(
+        title__icontains=search_value
+      )
+    elif select_filter == 'author':
+      filter_books = Book.objects.filter(
+        author__name__icontains=search_value
+      )
+    elif select_filter == 'category':
+      filter_books = Book.objects.filter(
+        category__name__icontains=search_value
+      )
+  
+  context = {
+    'books':filter_books,
+  }
+  
+  return render(request, 'livraria/index.html',context)

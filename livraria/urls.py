@@ -5,6 +5,7 @@ app_name = 'book'
 
 urlpatterns = [
     path('',views.index, name='index'),
+    path('search/',views.search, name='search'),
     
     
     #BOOK CRUD
