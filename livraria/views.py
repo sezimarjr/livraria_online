@@ -2,6 +2,8 @@ from django.shortcuts import render,get_object_or_404,redirect
 from django.db.models import Q
 from livraria.models import Book
 from django.core.paginator import Paginator
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import auth
 
 # Create your views here.
 
@@ -36,7 +38,6 @@ def search(request):
   search_value = request.GET.get('q','').strip()
   if not search_value:
     return redirect('book:index')
- 
   select_filter = request.GET.get('selected_filter')
   
   
@@ -61,3 +62,17 @@ def search(request):
   }
   
   return render(request, 'livraria/index.html',context)
+
+
+def login_view(request):
+  form = AuthenticationForm(request)
+  
+  if request.method == 'POST':
+    form = AuthenticationForm(request, data=request.POST)
+    
+    if form.is_valid():
+      user = form.get_user()
+      auth.login(request, user)
+      return redirect('book:index')
+    
+  return render(request, 'livraria/login.html',{'form':form})
